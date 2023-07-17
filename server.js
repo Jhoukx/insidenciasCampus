@@ -3,12 +3,13 @@ import dotenv from 'dotenv';
 import appHardware  from './routers/hardware.js';
 import appTrainers from './routers/trainers.js';
 import appInsidencias from './routers/insidencias.js'
+import {proxyHardware} from './Middlewares/proxyHardware.js'
 dotenv.config();
 const appServer = express();
 
 appServer.use(express.json());
 
-appServer.use('/hardware', appHardware);
+appServer.use('/hardware',proxyHardware,appHardware);
 appServer.use('/trainers', appTrainers);
 appServer.use('/insidencias', appInsidencias);
 
