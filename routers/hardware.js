@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import mysql2, { createPool } from 'mysql2';
+import { createPool } from 'mysql2';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -9,7 +9,7 @@ let con = undefined;
 const config = JSON.parse(process.env.DATABASE);
 
 appHardware.use((req, res, next) => { 
-    con = createPool(config, req.body);
+    con = createPool(config);
     next();
 });
 
