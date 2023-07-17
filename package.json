@@ -5,7 +5,8 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "dev": "nodemon --quiet server.js"
+    "dev": "nodemon --quiet server.js",
+    "tsc":"tsc -w"
   },
   "keywords": [],
   "author": "",
