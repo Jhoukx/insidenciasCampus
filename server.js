@@ -4,9 +4,9 @@ import appHardware  from './routers/hardware.js';
 dotenv.config();
 const appServer = express();
 
-appHardware.use(express.json());
+appServer.use(express.json());
 
-appServer.use('/hardware',appHardware);
+appServer.use('/hardware', appHardware);
 
 const config = JSON.parse(process.env.SERVER);
 

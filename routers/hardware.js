@@ -28,6 +28,27 @@ appHardware.get('/', (req, res) => {
         }
     )
 });
-
+/**
+ * Datos principales
+ * @param {nombre}
+ * @param {creado_por}
+ */
+appHardware.post('/', (req, res) => {
+    con.query(
+    /*sql*/ `INSERT INTO hardware SET ?`,
+        req.body,
+        (err, data) => {
+            switch (err) {
+                case null:
+                    console.log('Los datos se enviaron correctamente :D');
+                    res.send();
+                    break
+                default:
+                    console.log(err);
+                    res.status(404).send();
+            }
+        }
+    );
+ });
 
 export default appHardware;
